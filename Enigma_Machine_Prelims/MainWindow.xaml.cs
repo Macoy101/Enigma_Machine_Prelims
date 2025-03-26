@@ -50,7 +50,7 @@ namespace Enigma_Machine_Prelims
         {
             string temp = "";
             foreach (char r in ring)
-                temp += r + "   "; // Add tab for spacing
+                temp += r + "   "; 
             displayLabel.Content = temp;
         }
 
@@ -71,16 +71,15 @@ namespace Enigma_Machine_Prelims
         // Added method for Virtual Keyboard Input
         private void KeyPress(char letter)
         {
-            lblInput.Content = lblInput.Content.ToString() + letter;
-
-            lblEncrpyt.Content = lblEncrpyt.Content.ToString() + Encrypt(letter);
-            lblEncrpytMirror.Content = lblEncrpytMirror.Content.ToString() + Mirror(letter);
-
             if (_rotor)
             {
                 Rotate(true);
                 UpdateRotorDisplay();
             }
+            lblInput.Content = lblInput.Content.ToString() + letter;
+            lblEncrpyt.Content = lblEncrpyt.Content.ToString() + Encrypt(letter);
+            lblEncrpytMirror.Content = lblEncrpytMirror.Content.ToString() + Mirror(letter);
+
         }
         // This updates the Rotor Display
         private void UpdateRotorDisplay()
@@ -96,17 +95,16 @@ namespace Enigma_Machine_Prelims
             {
                 if ((int)e.Key.ToString()[0] >= 65 && (int)e.Key.ToString()[0] <= 90)
                 {
-                    lblInput.Content += e.Key.ToString();
-                    lblEncrpyt.Content += Encrypt(e.Key.ToString()[0]) + "";
-                    lblEncrpytMirror.Content += Mirror(e.Key.ToString()[0]) + "";
-
                     if (_rotor)
                     {
                         Rotate(true);
-                        DisplayRing(lblRing1, _ring1); 
+                        DisplayRing(lblRing1, _ring1);
                         DisplayRing(lblRing2, _ring2);
                         DisplayRing(lblRing3, _ring3);
                     }
+                    lblInput.Content += e.Key.ToString();
+                    lblEncrpyt.Content += Encrypt(e.Key.ToString()[0]) + "";
+                    lblEncrpytMirror.Content += Mirror(e.Key.ToString()[0]) + "";
                 }
             }
             else if (e.Key == Key.Space)
@@ -256,8 +254,7 @@ namespace Enigma_Machine_Prelims
         private void btnRotor_Click(object sender, RoutedEventArgs e)
         {
             SetDefaults();
-
-            if (int.TryParse(txtBRing1Init.Text, out _initOffset[0]) &&
+                    if (int.TryParse(txtBRing1Init.Text, out _initOffset[0]) &&
                 int.TryParse(txtBRing2Init.Text, out _initOffset[1]) &&
                 int.TryParse(txtBRing3Init.Text, out _initOffset[2]))
             {
@@ -335,8 +332,13 @@ namespace Enigma_Machine_Prelims
             {
                 if (pair.Length == 2)
                 {
-                    _plugboard[pair[0]] = pair[1];
-                    _plugboard[pair[1]] = pair[0];
+                    if (char.IsLetter(pair[0]) && char.IsLetter(pair[0]) || pair[0] == ' ' || pair[1] == ' ')
+                    {
+                        _plugboard[pair[0]] = pair[1];
+                        _plugboard[pair[1]] = pair[0];
+                    }
+                    MessageBox.Show("Invalid Input! Please enter two consecutive letters.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    hasError = true;
                 }
                 //Added Error Handling
                 else if (pair.Length != 2 && pair.Length != 0)

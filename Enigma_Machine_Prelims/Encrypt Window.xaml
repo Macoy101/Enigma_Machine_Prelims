@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Enigma_Machine_Prelims"
         mc:Ignorable="d"
         Title="Encrypt_Window" Height="300" Width="350">
-    <Window.Background>
-        <ImageBrush ImageSource="D:\Downloads\Task Progression Image.png"/>
-    </Window.Background>
     <Grid Margin="0,0,0,15">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Encryption Window.png"/>
+        </Grid.Background>
         <Label Content="Input Message:" HorizontalAlignment="Left" Margin="34,14,0,0" FontWeight="Bold" FontFamily="Courier New" Height="29" VerticalAlignment="Top"/>
         <Label Content="Encrypted Message:" HorizontalAlignment="Left" Margin="200,16,0,0" FontWeight="Bold" FontFamily="Courier New" Height="27" VerticalAlignment="Top"/>
         <Label Content="Encrypted Message &#xD;&#xA;with Mirroring:" Margin="200,129,0,0" FontWeight="Bold" FontFamily="Courier New" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>

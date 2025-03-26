@@ -5,10 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Enigma_Machine_Prelims"
         mc:Ignorable="d"
-       Title="MainWindow" Height="1000" Width="900" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" >
-    <Window.Background>
-        <ImageBrush ImageSource="D:\Downloads\Enigma Background.png" />
-    </Window.Background>
+       Title="MainWindow" Height="800" Width="900" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" >
     <Window.Resources>
         <Style x:Key="RoundButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Black"/>
@@ -48,6 +45,9 @@
         </Style>
     </Window.Resources>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Enigma Background.png"/>
+        </Grid.Background>
 
         <Label Content="Control" HorizontalAlignment="Left" Margin="50,90,0,0" Style="{StaticResource whitelabel}" FontWeight="Bold"/>
         <Label Content="Ring 1 (S)" HorizontalAlignment="Left" Margin="50,120,0,0" Style="{StaticResource whitelabel}" FontWeight="Bold"/>
@@ -59,26 +59,26 @@
         <Label x:Name="lblRing2" Content="Label" HorizontalAlignment="Left" Margin="150,150,0,0" Style="{StaticResource whitelabel}" FontSize="11"/>
         <Label x:Name="lblRing3" Content="Label" HorizontalAlignment="Left" Margin="150,180,0,0" Style="{StaticResource whitelabel}" FontSize="11" RenderTransformOrigin="0.907,0.625"/>
         <Label x:Name="reflectorlbl" Content="Label" HorizontalAlignment="Left" Margin="150,210,0,0" Style="{StaticResource whitelabel}" FontSize="11"/>
-        <Label x:Name="lblInput" Content="Input" HorizontalAlignment="Left" Margin="50,291,0,0" Style="{StaticResource whitelabel}"/>
-        <Label x:Name="lblEncrpyt" Content="Encrypt" HorizontalAlignment="Left" Margin="50,345,0,0" Style="{StaticResource whitelabel}"/>
-        <Label x:Name="lblEncrpytMirror" Content="Mirror" HorizontalAlignment="Left" Margin="50,400,0,0" Style="{StaticResource whitelabel}"/>
+        <Label x:Name="lblInput" Content="Input" HorizontalAlignment="Left" Margin="50,273,0,0" Style="{StaticResource whitelabel}"/>
+        <Label x:Name="lblEncrpyt" Content="Encrypt" HorizontalAlignment="Left" Margin="50,327,0,0" Style="{StaticResource whitelabel}"/>
+        <Label x:Name="lblEncrpytMirror" Content="Mirror" HorizontalAlignment="Left" Margin="50,382,0,0" Style="{StaticResource whitelabel}"/>
         <Button x:Name="btnRotor"  Content="Rotor On" HorizontalAlignment="Left" Margin="718,28,0,0" Style="{StaticResource RoundButtonStyle}" VerticalAlignment="Top" Click="btnRotor_Click" FontFamily="Courier New" Width="122" FontSize="12" Height="50"/>
         <TextBox x:Name="txtBRing1Init" HorizontalAlignment="Left" Margin="75,41,0,0" TextWrapping="Wrap" Text="0-25" VerticalAlignment="Top" Width="41" Height="18" GotFocus="txtBRing1Init_GotFocus" HorizontalContentAlignment="Center" FontFamily="Courier New" FontSize="13"/>
-        <TextBox x:Name="txtBRing2Init" HorizontalAlignment="Left" Margin="147,41,0,0" TextWrapping="Wrap" Text="0-25" VerticalAlignment="Top" Width="41" GotFocus="txtBRing2Init_GotFocus" HorizontalContentAlignment="Center" FontSize="13" FontFamily="Courier New"/>
-        <TextBox x:Name="txtBRing3Init" HorizontalAlignment="Left" Margin="214,41,0,0" TextWrapping="Wrap" Text="0-25" VerticalAlignment="Top" Width="41" Height="18" GotFocus="txtBRing3Init_GotFocus" HorizontalContentAlignment="Center" FontSize="13" FontFamily="Courier New"/>
-        <Label Content="H" HorizontalAlignment="Left" Margin="51,41,0,0" Style="{StaticResource whitelabel}"/>
-        <Label Content="M" HorizontalAlignment="Left" Margin="121,41,0,0" Style="{StaticResource whitelabel}"/>
-        <Label Content="S" HorizontalAlignment="Left" Margin="193,41,0,0" Style="{StaticResource whitelabel}"/>
+        <TextBox x:Name="txtBRing2Init" HorizontalAlignment="Left" Margin="147,42,0,0" TextWrapping="Wrap" Text="0-25" VerticalAlignment="Top" Width="41" GotFocus="txtBRing2Init_GotFocus" HorizontalContentAlignment="Center" FontSize="13" FontFamily="Courier New"/>
+        <TextBox x:Name="txtBRing3Init" HorizontalAlignment="Left" Margin="215,41,0,0" TextWrapping="Wrap" Text="0-25" VerticalAlignment="Top" Width="41" Height="18" GotFocus="txtBRing3Init_GotFocus" HorizontalContentAlignment="Center" FontSize="13" FontFamily="Courier New"/>
+        <Label Content="H" HorizontalAlignment="Left" Margin="51,39,0,0" Style="{StaticResource whitelabel}" FontSize="14"/>
+        <Label Content="M" HorizontalAlignment="Left" Margin="121,39,0,0" Style="{StaticResource whitelabel}" FontSize="14"/>
+        <Label Content="S" HorizontalAlignment="Left" Margin="193,39,0,0" Style="{StaticResource whitelabel}" FontSize="14"/>
 
-        <Label Content="Input Message:" HorizontalAlignment="Left" Margin="50,265,0,0" Style="{StaticResource whitelabel}" FontWeight="Bold"/>
-        <Label Content="Encrypted Message:" HorizontalAlignment="Left" Margin="50,319,0,0" Style="{StaticResource whitelabel}" RenderTransformOrigin="0.485,0.194" FontWeight="Bold"/>
-        <Label Content="Encrypted Message with Mirroring:" HorizontalAlignment="Left" Margin="50,374,0,0" Style="{StaticResource whitelabel}" FontWeight="Bold"/>
-        <Label Content="Plugboard (AB CD EF):" HorizontalAlignment="Left" Margin="50,746,0,0" Style="{StaticResource whitelabel}" FontSize="18" FontWeight="Bold"/>
-        <TextBox x:Name="txtPlugboard" HorizontalAlignment="Center" Margin="0,781,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="682" TextChanged="txtPlugboard_TextChanged" Height="41" FontSize="30" FontWeight="Bold"/>
-        <Button x:Name="btnSetPlugboard" Content="Set Plugboard" HorizontalAlignment="Left" Margin="497,836,0,0" Style="{StaticResource RoundButtonStyle}" VerticalAlignment="Top" Click="btnSetPlugboard_Click" Width="236" Height="52" FontSize="25"/>
+        <Label Content="Input Message:" HorizontalAlignment="Left" Margin="50,247,0,0" Style="{StaticResource whitelabel}" FontWeight="Bold"/>
+        <Label Content="Encrypted Message:" HorizontalAlignment="Left" Margin="50,301,0,0" Style="{StaticResource whitelabel}" RenderTransformOrigin="0.485,0.194" FontWeight="Bold"/>
+        <Label Content="Encrypted Message with Mirroring:" HorizontalAlignment="Left" Margin="50,356,0,0" Style="{StaticResource whitelabel}" FontWeight="Bold"/>
+        <Label Content="Plugboard (AB CD EF):" HorizontalAlignment="Left" Margin="50,654,0,0" Style="{StaticResource whitelabel}" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="txtPlugboard" HorizontalAlignment="Left" Margin="59,689,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="522" TextChanged="txtPlugboard_TextChanged" Height="41" FontSize="30" FontWeight="Bold"/>
+        <Button x:Name="btnSetPlugboard" Content="Set Plugboard" HorizontalAlignment="Left" Margin="604,686,0,0" Style="{StaticResource RoundButtonStyle}" VerticalAlignment="Top" Click="btnSetPlugboard_Click" Width="236" Height="46" FontSize="25"/>
 
         <!--Keyboard-->
-        <StackPanel Orientation="Vertical" Margin="0,492,0,0" HorizontalAlignment="Center" Width="780" Height="238" VerticalAlignment="Top">
+        <StackPanel Orientation="Vertical" Margin="0,412,0,0" HorizontalAlignment="Center" Width="780" Height="238" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="qbtn" Content="Q" Margin="40,0,0,0" Style="{StaticResource RoundButtonStyle}" Click="qbtn_Click"/>
                 <Button x:Name="wbtn" Content="W" Margin="20,0,0,0" Style="{StaticResource RoundButtonStyle}" Click="wbtn_Click"/>
